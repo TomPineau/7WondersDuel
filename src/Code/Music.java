@@ -8,19 +8,23 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Random;
 
-import static Code.Page.Welcome.mainPath;
-import static Code.Page.Welcome.settingList;
+import static Code.Main.mainPath;
+import static Code.Window.Welcome.settingList;
+import static Code.Data.musicList;
 
 public class Music {
 
     public static boolean endOfBackgroundMusic;
+    private static boolean printMusicMessage = true;
     private static int lastBackgroundMusicIndex = -1;
-    static ArrayList<MediaPlayer> musicList = new ArrayList<>();
+    private static MediaPlayer currentMusic;
+    private static Timeline wait;
 
     public static void playThemeMusic(@NotNull MediaPlayer mediaPlayer, double volume) {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -42,65 +46,85 @@ public class Music {
     }
 
     public static void playBackgroundMusic() {
+        endOfBackgroundMusic = false;
         waitUntilNewMusic();
     }
 
     private static void waitUntilNewMusic() {
-        double time = randomTime();
-        printYellow("Temps avant prochaine chanson : " + time + " secondes");
-        EventHandler<ActionEvent> event = e -> {
+        double time = randomTime(10, 10);
+        printMusicMessage("Temps avant prochaine chanson : " + time + " secondes");
+        EventHandler playRandomMusic = event -> {
             if (!endOfBackgroundMusic) {
                 playRandomMusic();
             }
         };
-        playMusicOnTimelineFinished(time, event);
+        playMusicOnTimelineFinished(time, playRandomMusic);
     }
 
     private static void playRandomMusic() {
+        if (currentMusic != null) {
+            currentMusic.stop();
+        }
+        Media musicChosen = chooseRandomMusic();
+        currentMusic = new MediaPlayer(musicChosen);
+        currentMusic.setVolume(settingList.get(1));
+        currentMusic.play();
+        printMusicMessage("Musique jouée : " + currentMusic.getMedia().getSource().substring(mainPath.length() + 27, currentMusic.getMedia().getSource().length()-4));
+        EventHandler<ActionEvent> waitUntilNewMusic = e -> {
+            currentMusic.stop();
+            printMusicMessage("Fin chanson");
+            if (!endOfBackgroundMusic) {
+                waitUntilNewMusic();
+            }
+        };
+        playMusicOnTimelineFinished(360, waitUntilNewMusic);
+    }
+
+    private static void playMusicOnTimelineFinished(double time, EventHandler<ActionEvent> event) {
+        wait = new Timeline(new KeyFrame(Duration.seconds(time)));
+        wait.play();
+        wait.setOnFinished(event);
+    }
+
+    public static void stopBackgroundMusic() {
+        if (currentMusic != null) {
+            currentMusic.stop();
+        }
+        wait.stop();
+        endOfBackgroundMusic = true;
+        lastBackgroundMusicIndex = -1;
+        printMusicMessage("||| Arrêt |||");
+    }
+
+    private static Media chooseRandomMusic() {
         Random rand = new Random();
         int randomMusic = rand.nextInt(musicList.size());
         while (randomMusic == lastBackgroundMusicIndex) {
             randomMusic = rand.nextInt(musicList.size());
         }
         lastBackgroundMusicIndex = randomMusic;
-        MediaPlayer musicPlayed = musicList.get(randomMusic);
-        musicPlayed.setVolume(settingList.get(1));
-        musicPlayed.play();
-        printYellow("Musique jouée : " + musicPlayed.getMedia().getSource().substring(67,musicPlayed.getMedia().getSource().length()-4));
-        EventHandler<ActionEvent> event = e -> {
-            musicPlayed.stop();
-            printYellow("Fin chanson");
-            if (!endOfBackgroundMusic) {
-                waitUntilNewMusic();
-            }
-        };
-        playMusicOnTimelineFinished(360, event);
+        return musicList.get(randomMusic);
     }
 
-    private static void playMusicOnTimelineFinished(double time, EventHandler<ActionEvent> event) {
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(time)));
-        timeline.play();
-        timeline.setOnFinished(event);
+    private static double randomTime(double minTime, int averageTime) {
+        Random random = new Random();
+        return random.nextInt(averageTime) + minTime;
     }
 
-    public static void stopBackgroundMusic() {
-        endOfBackgroundMusic = true;
-        lastBackgroundMusicIndex = -1;
-        for (MediaPlayer mediaPlayer : musicList) {
-            mediaPlayer.stop();
+    private static void printMusicMessage(String string) {
+        if (printMusicMessage) {
+            String ANSI_RESET = "\u001B[0m";
+            String ANSI_YELLOW = "\u001B[33m";
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            System.out.println(ANSI_YELLOW + string + " - " + dtf.format(now) + ANSI_RESET);
         }
     }
 
-    private static double randomTime() {
-        Random random = new Random();
-        return (double) (random.nextInt(121) + 60);
-    }
-
-    private static void printYellow(String string) {
-        String ANSI_RESET = "\u001B[0m";
-        String ANSI_YELLOW = "\u001B[33m";
-        System.out.println(ANSI_YELLOW + string + ANSI_RESET);
+    private static void printDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
     }
 
 }

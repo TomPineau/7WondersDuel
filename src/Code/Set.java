@@ -20,15 +20,32 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static Code.Main.pane;
-import static Code.Page.Welcome.mainPath;
-import static Code.Page.Welcome.settingList;
+import static Code.Main.mainPath;
+import static Code.Window.Welcome.settingList;
 
 public class Set {
 
-    public static void image(@NotNull ImageView imageView) {
+    public static void backgroundPicture(@NotNull ImageView imageView, String Id) {
         imageView.fitWidthProperty().bind(pane.widthProperty());
         imageView.fitHeightProperty().bind(pane.heightProperty());
         imageView.setPreserveRatio(false);
+        imageView.setId(Id);
+        pane.getChildren().add(imageView);
+    }
+
+    public static void image(@NotNull ImageView imageView, double x, double y, double widthProportion, double heightProportion) {
+        double sceneWidth = pane.getScene().getWidth()*0.01;
+        double sceneHeight = pane.getScene().getHeight()*0.01;
+        double imageWidth = sceneWidth*widthProportion;
+        double imageHeight = sceneHeight*heightProportion;
+        double imageX = sceneWidth*x;
+        double imageY = sceneHeight*y;
+        imageView.setFitWidth(imageWidth);
+        imageView.setFitHeight(imageHeight);
+        imageView.setTranslateX(imageX);
+        imageView.setTranslateY(imageY);
+        imageView.setPreserveRatio(false);
+        responsiveNode(imageView, x, y, widthProportion, heightProportion);
         pane.getChildren().add(imageView);
     }
 
@@ -56,7 +73,6 @@ public class Set {
 
     public static void text(String string, double x, double y, double widthProportion, double heightProportion, boolean isTitle) {
         double fontSize;
-        //ArrayList<Double> widthHeightList = widthHeightList(x, y, widthProportion, heightProportion);
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
         double textWidth = sceneWidth*widthProportion;
@@ -71,6 +87,7 @@ public class Set {
         textField.setTranslateX(textX);
         textField.setTranslateY(textY);
         textField.setAlignment(Pos.CENTER);
+        textField.setDisable(true);
         if (isTitle) {
             textField.setId("settingTitle");
             fontSize = settingList.get(3);
@@ -81,13 +98,11 @@ public class Set {
         DoubleProperty fontSizeButton = new SimpleDoubleProperty(16);
         fontSizeButton.bind(pane.widthProperty().add(pane.heightProperty()).divide(fontSize));
         textField.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSizeButton.asString(), "px;"));
-        textField.setDisable(true);
         responsiveNode(textField, x, y, widthProportion, heightProportion);
         pane.getChildren().add(textField);
     }
 
     public static void slider(@NotNull Slider slider, String string, double x, double y, double widthProportion, double heightProportion, boolean isTitle) {
-        //ArrayList<Double> widthHeightList = widthHeightList(x, y, widthProportion, heightProportion);
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
         double sliderWidth = sceneWidth*widthProportion;
@@ -204,6 +219,10 @@ public class Set {
             TextField textField = (TextField) node;
             pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, x, widthProportion, newValue, "x"));
             pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, y, heightProportion, newValue, "y"));
+        } else if (node instanceof ImageView) {
+            ImageView imageView = (ImageView) node;
+            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, x, widthProportion, newValue, "x"));
+            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, y, heightProportion, newValue, "y"));
         }
     }
 
@@ -240,21 +259,16 @@ public class Set {
         }
     }
 
-//    private static ArrayList<Double> widthHeightList(double x, double y, double widthProportion, double heightProportion) {
-//        double sceneWidth = pane.getScene().getWidth()*0.01;
-//        double sceneHeight = pane.getScene().getHeight()*0.01;
-//        double nodeWidth = sceneWidth*widthProportion;
-//        double nodeHeight = sceneHeight*heightProportion;
-//        double nodeX = sceneWidth*x;
-//        double nodeY = sceneHeight*y;
-//        widthHeightList.set(0, nodeWidth);
-//        widthHeightList.set(1, nodeHeight);
-//        widthHeightList.set(2, nodeX);
-//        widthHeightList.set(3, nodeY);
-//        return widthHeightList;
-//    }
-
-
+    private static void responsiveImageView(@NotNull ImageView imageView, double axis, double proportion, Number newValue, @NotNull String property) {
+        double percentage = (double) newValue*0.01;
+        if (property.equals("x")) {
+            imageView.setFitWidth(percentage * proportion);
+            imageView.setTranslateX(percentage * axis);
+        } else if (property.equals("y")) {
+            imageView.setFitHeight(percentage * proportion);
+            imageView.setTranslateY(percentage * axis);
+        }
+    }
 
     /*public Effect effect(int effectIndex) {
         switch (effectIndex) {

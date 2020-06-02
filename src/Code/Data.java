@@ -1,19 +1,18 @@
 package Code;
 
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.util.ArrayList;
 
-import static Code.Page.Welcome.mainPath;
-import static Code.Page.Welcome.progressList;
-import static Code.Page.Welcome.settingList;
-import static Code.Music.musicList;
+import static Code.Main.mainPath;
+import static Code.Window.Welcome.settingList;
 
 public class Data {
 
+    public static ArrayList<String> progressList = new ArrayList<>();
     private static ArrayList<String> wonderList = new ArrayList<>();
+    static ArrayList<Media> musicList = new ArrayList<>();
 
     private static void addProgress() {
         String progressDirectory = mainPath + "/src/Picture/Progress";
@@ -31,11 +30,8 @@ public class Data {
         File[] backgroundMusicList = backgroundMusicFile.listFiles();
         if (backgroundMusicList != null) {
             for (File music : backgroundMusicList) {
-                String musicString = music.getName();
-                File musicFile = new File(backgroundMusicDirectory + musicString);
-                Media musicMedia = new Media(musicFile.toURI().toString());
-                MediaPlayer musicMediaPlayer = new MediaPlayer(musicMedia);
-                musicList.add(musicMediaPlayer);
+                Media musicMedia = new Media(music.toURI().toString());
+                musicList.add(musicMedia);
             }
         }
     }

@@ -1,11 +1,12 @@
 package Code;
 
-import Code.Page.Welcome;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import static Code.Main.mainPath;
 
 class CSVReader {
 
@@ -14,10 +15,10 @@ class CSVReader {
         String line;
         String cvsSplitBy = ";";
         try {
-            br = new BufferedReader(new FileReader(Welcome.mainPath + csvFile));
+            br = new BufferedReader(new FileReader(mainPath + csvFile));
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(cvsSplitBy);
-                printStringList(data);
+                //printStringList(data);
             }
         } catch (IOException e) {
             e.printStackTrace();
