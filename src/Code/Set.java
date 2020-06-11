@@ -1,5 +1,8 @@
 package Code;
 
+import Code.Gameboard.Gameboard;
+import Code.Gameboard.MilitaryToken;
+import Code.Gameboard.Shield;
 import javafx.animation.ScaleTransition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
@@ -21,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 import static Code.Main.pane;
 import static Code.Main.mainPath;
+import static Code.Window.Play.*;
 import static Code.Window.Welcome.settingList;
 
 public class Set {
@@ -33,11 +37,11 @@ public class Set {
         pane.getChildren().add(imageView);
     }
 
-    public static void image(@NotNull ImageView imageView, double x, double y, double widthProportion, double heightProportion) {
+    public static void image(@NotNull ImageView imageView, double x, double y, double width, double height) {
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
-        double imageWidth = sceneWidth*widthProportion;
-        double imageHeight = sceneHeight*heightProportion;
+        double imageWidth = sceneWidth*width;
+        double imageHeight = sceneHeight*height;
         double imageX = sceneWidth*x;
         double imageY = sceneHeight*y;
         imageView.setFitWidth(imageWidth);
@@ -45,15 +49,20 @@ public class Set {
         imageView.setTranslateX(imageX);
         imageView.setTranslateY(imageY);
         imageView.setPreserveRatio(false);
-        responsiveNode(imageView, x, y, widthProportion, heightProportion);
+        responsiveNode(imageView, x, y, width, height);
         pane.getChildren().add(imageView);
     }
 
-    public static void button(@NotNull Button button, ImageView imageView, double x, double y, double widthProportion, double heightProportion, int styleIndex) {
+    public static void resetImageView(@NotNull ImageView imageView, double x, double y, double width, double height) {
+        pane.getChildren().removeAll(imageView);
+        image(imageView, x, y, width, height);
+    }
+
+    public static void button(@NotNull Button button, ImageView imageView, double x, double y, double width, double height, int styleIndex) {
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
-        double buttonWidth = sceneWidth*widthProportion;
-        double buttonHeight = sceneHeight*heightProportion;
+        double buttonWidth = sceneWidth*width;
+        double buttonHeight = sceneHeight*height;
         double buttonX = sceneWidth*x;
         double buttonY = sceneHeight*y;
         buttonStyle(button, styleIndex);
@@ -67,16 +76,16 @@ public class Set {
             imageView.fitWidthProperty().bind(button.widthProperty());
             imageView.fitHeightProperty().bind(button.heightProperty());
         }
-        responsiveNode(button, x, y, widthProportion, heightProportion);
+        responsiveNode(button, x, y, width, height);
         pane.getChildren().add(button);
     }
 
-    public static void text(String string, double x, double y, double widthProportion, double heightProportion, boolean isTitle) {
+    public static void text(String string, double x, double y, double width, double height, boolean isTitle) {
         double fontSize;
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
-        double textWidth = sceneWidth*widthProportion;
-        double textHeight = sceneHeight*heightProportion;
+        double textWidth = sceneWidth*width;
+        double textHeight = sceneHeight*height;
         double textX = sceneWidth*x;
         double textY = sceneHeight*y;
         TextField textField = new TextField();
@@ -98,15 +107,15 @@ public class Set {
         DoubleProperty fontSizeButton = new SimpleDoubleProperty(16);
         fontSizeButton.bind(pane.widthProperty().add(pane.heightProperty()).divide(fontSize));
         textField.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSizeButton.asString(), "px;"));
-        responsiveNode(textField, x, y, widthProportion, heightProportion);
+        responsiveNode(textField, x, y, width, height);
         pane.getChildren().add(textField);
     }
 
-    public static void slider(@NotNull Slider slider, String string, double x, double y, double widthProportion, double heightProportion, boolean isTitle) {
+    public static void slider(@NotNull Slider slider, String string, double x, double y, double width, double height, boolean isTitle) {
         double sceneWidth = pane.getScene().getWidth()*0.01;
         double sceneHeight = pane.getScene().getHeight()*0.01;
-        double sliderWidth = sceneWidth*widthProportion;
-        double sliderHeight = sceneHeight*heightProportion;
+        double sliderWidth = sceneWidth*width;
+        double sliderHeight = sceneHeight*height;
         double sliderX = sceneWidth*x;
         double sliderY = sceneHeight*y;
         slider.setId("sliders");
@@ -114,8 +123,8 @@ public class Set {
         slider.setPrefHeight(sliderHeight);
         slider.setTranslateX(sliderX);
         slider.setTranslateY(sliderY);
-        text(string, x, y - slider.getPrefHeight()*0.0625, widthProportion, heightProportion, isTitle);
-        responsiveNode(slider, x, y, widthProportion, heightProportion);
+        text(string, x, y - slider.getPrefHeight()*0.0625, width, height, isTitle);
+        responsiveNode(slider, x, y, width, height);
         pane.getChildren().add(slider);
     }
 
@@ -154,6 +163,20 @@ public class Set {
         imageView.setFitWidth(40);
         imageView.setFitHeight(40);
         alert.getDialogPane().setGraphic(imageView);
+    }
+
+    public static void gameboard() {
+        String path = "file:" + mainPath + "/src/Picture/MilitaryToken/";
+        gameboard = new Gameboard(25.0, 0.0, 50.0, 22.5);
+        left5 = new MilitaryToken(new ImageView(path + "left5.png"), 11,72.5,11,16);
+        left2 = new MilitaryToken(new ImageView(path + "left2.png"), 25.9,74.25,9.5,13);
+        right2 = new MilitaryToken(new ImageView(path + "right2.png"), 63.5,74.25,9.5,13);
+        right5 = new MilitaryToken(new ImageView(path + "right5.png"), 77,72.5,11,16);
+        shield = new Shield(new ImageView("file:" + mainPath + "/src/Picture/Shield.png"),45.8775,39, 6, 40);
+        shield.move(4);
+        /*Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10)));
+        timeline.play();
+        timeline.setOnFinished(event -> shield.move(3));*/
     }
 
     private static void buttonStyle(Button button, int styleIndex) {
@@ -206,23 +229,23 @@ public class Set {
         });
     }
 
-    private static void responsiveNode(@NotNull Node node, double x, double y, double widthProportion, double heightProportion) {
+    public static void responsiveNode(@NotNull Node node, double x, double y, double width, double height) {
         if (node instanceof Button) {
             Button button = (Button) node;
-            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveButton(button, x, widthProportion, newValue, "x"));
-            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveButton(button, y, heightProportion, newValue, "y"));
+            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveButton(button, x, width, newValue, "x"));
+            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveButton(button, y, height, newValue, "y"));
         } else if (node instanceof Slider) {
             Slider slider = (Slider) node;
-            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveSlider(slider, x, widthProportion, newValue, "x"));
-            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveSlider(slider, y, heightProportion, newValue, "y"));
+            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveSlider(slider, x, width, newValue, "x"));
+            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveSlider(slider, y, height, newValue, "y"));
         } else if (node instanceof TextField) {
             TextField textField = (TextField) node;
-            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, x, widthProportion, newValue, "x"));
-            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, y, heightProportion, newValue, "y"));
+            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, x, width, newValue, "x"));
+            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveTextField(textField, y, height, newValue, "y"));
         } else if (node instanceof ImageView) {
             ImageView imageView = (ImageView) node;
-            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, x, widthProportion, newValue, "x"));
-            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, y, heightProportion, newValue, "y"));
+            pane.widthProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, x, width, newValue, "x"));
+            pane.heightProperty().addListener((observable, oldValue, newValue) -> responsiveImageView(imageView, y, height, newValue, "y"));
         }
     }
 

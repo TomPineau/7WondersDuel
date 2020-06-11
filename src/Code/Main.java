@@ -24,15 +24,15 @@ public class Main extends Application {
     public void start(@NotNull Stage stage) {
         Scene scene = new Scene(pane);
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
-        //Welcome.welcome();
-        Play.play();
-        //Settings.settings();
         stage.setTitle("7Wonders Duel");
         stage.setMinWidth(640);
         stage.setMinHeight(400);
         stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        //Welcome.welcome();
+        Play.play();
+        //Settings.settings();
     }
 
 }

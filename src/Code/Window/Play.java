@@ -1,14 +1,14 @@
 package Code.Window;
 
 
-import Code.Set;
-import javafx.animation.TranslateTransition;
-import javafx.scene.Node;
+import Code.*;
+import Code.Gameboard.Gameboard;
+import Code.Gameboard.MilitaryToken;
+import Code.Gameboard.Shield;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 
 import java.util.Optional;
 
@@ -16,18 +16,27 @@ import static Code.Main.pane;
 import static Code.Window.Welcome.*;
 import static Code.Set.*;
 import static Code.Data.progressList;
-import Code.Music;
 
 import static Code.Main.mainPath;
 
 public class Play {
 
-    static ImageView welcomeDuel = new ImageView("file:" + mainPath + "/src/Picture/Welcome.jpg");
+    private static ImageView woodBackground = new ImageView("file:" + mainPath + "/src/Picture/woodBackground.jpg");
+    public static boolean isPlaying = false;
+    public static Gameboard gameboard;
+    public static Shield shield;
+    public static MilitaryToken left5;
+    public static MilitaryToken left2;
+    public static MilitaryToken right2;
+    public static MilitaryToken right5;
+
 
     public static void play() {
         pane.getChildren().clear();
-        Set.backgroundPicture(welcomeDuel, "welcomePicture");
+        isPlaying = true;
+        Set.backgroundPicture(woodBackground, "");
         exitButton();
+        Set.gameboard();
         money();
         Music.playBackgroundMusic();
     }
@@ -71,17 +80,9 @@ public class Play {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             Music.playSoundEffect(0, settingList.get(2));
-            translateAnimation(button, 1);
+            Transition.translateTransition(button, 1, 0, 200);
             button.setDisable(true);
         }
-    }
-
-    private static void translateAnimation(Node node, double time) {
-        TranslateTransition translateTransition = new TranslateTransition();
-        translateTransition.setDuration(Duration.seconds(time));
-        translateTransition.setNode(node);
-        translateTransition.setByY(200);
-        translateTransition.play();
     }
 
     private static void quitGame() {
@@ -91,6 +92,7 @@ public class Play {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             Music.playSoundEffect(0, settingList.get(2));
             Music.stopBackgroundMusic();
+            isPlaying = false;
             pane.getChildren().clear();
             welcome();
         }

@@ -14,6 +14,8 @@ import javafx.util.Duration;
 
 import Code.Music;
 import Code.Set;
+import org.jetbrains.annotations.NotNull;
+
 import static Code.Main.mainPath;
 import static Code.Main.pane;
 
@@ -35,12 +37,9 @@ public class Welcome {
         Set.button(settingsButton, settingsPicture, 3, 4.8, 3, 5,0);
         startButton.setOnAction(e -> {
             Music.playSoundEffect(1, settingList.get(2));
-            Music.endOfBackgroundMusic = false;
             themeMusic.stop();
-            //welcomeDuel.setId("welcomePicture");
+            clearButton(settingsButton);
             startButton.setDisable(true);
-            settingsButton.setDisable(true);
-            settingsButton.setVisible(false);
             EventHandler<ActionEvent> event = event1 -> {
                 startButton.setVisible(false);
                 Play.play();
@@ -49,11 +48,8 @@ public class Welcome {
         });
         settingsButton.setOnAction(e -> {
             Music.playSoundEffect(0, settingList.get(2));
-            //welcomeDuel.setId("welcomePicture");
-            startButton.setDisable(true);
-            startButton.setVisible(false);
-            settingsButton.setDisable(true);
-            settingsButton.setVisible(false);
+            clearButton(startButton);
+            clearButton(settingsButton);
             Settings.settings();
         });
     }
@@ -63,6 +59,11 @@ public class Welcome {
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(time)));
         timeline.play();
         timeline.setOnFinished(event);
+    }
+
+    private static void clearButton(@NotNull Button button) {
+        button.setDisable(true);
+        button.setVisible(false);
     }
 
     /*public void printWonders() {
