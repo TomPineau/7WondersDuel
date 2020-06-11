@@ -9,14 +9,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Play.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Settings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Welcome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/7WondersDuel/Code/Window/Welcome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Set.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Window/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Window/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Window/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Window/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Code/Window/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Window/Welcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Picture/Gameboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Picture/Gameboard.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Picture/Military/Military_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Picture/Military/Military_5.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Code/Window/Play.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-108">
-              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+            <state relative-caret-position="349">
+              <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,10 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Code/Gameboard.java">
+        <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/Gameboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="105">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,10 +56,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Code/Shield.java">
+        <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/Shield.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="184" column="9" lean-forward="true" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="9" />
+            <state relative-caret-position="270">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setX#0;class#Shield#0" />
@@ -78,10 +70,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Code/MilitaryToken.java">
+        <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/MilitaryToken.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="96" lean-forward="true" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+            <state relative-caret-position="120">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#613#614#0" expanded="true" />
@@ -117,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/Code/Transition.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="292">
-              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+              <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Code/Set.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="385">
+              <caret line="187" column="22" lean-forward="true" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -204,11 +196,11 @@
         <option value="$PROJECT_DIR$/src/Code/Gameboard.java" />
         <option value="$PROJECT_DIR$/src/Code/Main.java" />
         <option value="$PROJECT_DIR$/src/Code/Military.java" />
-        <option value="$PROJECT_DIR$/src/Code/Set.java" />
         <option value="$PROJECT_DIR$/src/Code/Transition.java" />
-        <option value="$PROJECT_DIR$/src/Code/Window/Play.java" />
         <option value="$PROJECT_DIR$/src/Code/Shield.java" />
         <option value="$PROJECT_DIR$/src/Code/MilitaryToken.java" />
+        <option value="$PROJECT_DIR$/src/Code/Window/Play.java" />
+        <option value="$PROJECT_DIR$/src/Code/Set.java" />
       </list>
     </option>
   </component>
@@ -251,6 +243,13 @@
               <item name="7WondersDuel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
+              <item name="Gameboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="7WondersDuel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="7WondersDuel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Code" type="462c0819:PsiDirectoryNode" />
               <item name="Window" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -264,7 +263,7 @@
               <item name="7WondersDuel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Picture" type="462c0819:PsiDirectoryNode" />
-              <item name="Military" type="462c0819:PsiDirectoryNode" />
+              <item name="MilitaryToken" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -281,7 +280,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591912194341" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591912216122" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -344,17 +343,26 @@
       <workItem from="1591018945864" duration="146000" />
       <workItem from="1591019124050" duration="551000" />
       <workItem from="1591019761799" duration="22859000" />
-      <workItem from="1591120905277" duration="56731000" />
+      <workItem from="1591120905277" duration="57070000" />
     </task>
+    <task id="LOCAL-00001" summary="Add gameboard, shield, military tokens and transition class reviewed">
+      <created>1591912294017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591912294019</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290271000" />
+    <option name="totallyTimeSpent" value="290610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28029078" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28029078" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -363,7 +371,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4983845" visible="true" weight="0.32876712" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4983845" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -420,6 +428,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add gameboard, shield, military tokens and transition class reviewed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add gameboard, shield, military tokens and transition class reviewed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Code/Cards/BlueCard.java">
@@ -619,40 +631,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code/Gameboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Code/Transition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code/Shield.java">
+    <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/Gameboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="184" column="9" lean-forward="true" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="9" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setX#0;class#Shield#0" />
@@ -661,10 +663,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code/MilitaryToken.java">
+    <entry file="file://$PROJECT_DIR$/src/Code/Gameboard/MilitaryToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="96" lean-forward="true" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#613#614#0" expanded="true" />
@@ -697,8 +699,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Code/Window/Play.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        <state relative-caret-position="349">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Code/Set.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="187" column="22" lean-forward="true" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
