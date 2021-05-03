@@ -1,0 +1,13 @@
+﻿name;isPlayed;location;stoneCost;woodCost;brickCost;glassCost;papyrusCost;doReplay;doRemoveCard;drawProgressToken;drawCardFromDeck;shield;moneyGain;moneyLost;stoneGain;woodGain;brickGain;glassGain;papyrusGain;crown
+La_Grande_Bibliotheque;false;DECK;0;3;0;1;1;false;NONE;true;false;0;0;0;false;false;false;false;false;4
+La_Statue_De_Zeus;false;DECK;1;1;1;0;2;false;BROWN;false;false;1;0;0;false;false;false;false;false;3
+La_Via_Appia;false;DECK;2;0;2;0;1;true;NONE;false;false;0;3;3;false;false;false;false;false;3
+Le_Circus_Maximus;false;DECK;2;1;0;1;0;false;GREY;false;false;1;0;0;false;false;false;false;false;3
+Le_Colosse;false;DECK;0;0;3;1;0;false;NONE;false;false;2;0;0;false;false;false;false;false;3
+Le_Grand_Phare;false;DECK;1;1;0;0;2;false;NONE;false;false;0;0;0;true;true;true;false;false;4
+Le_Mausolee;false;DECK;0;0;2;2;1;false;NONE;false;true;0;0;0;false;false;false;false;false;2
+Le_Piree;false;DECK;1;2;1;0;0;true;NONE;false;false;0;0;0;false;false;false;true;true;2
+Le_Sphynx;false;DECK;1;0;1;2;0;true;NONE;false;false;0;0;0;false;false;false;false;false;6
+Le_Temple_D_Artemis;false;DECK;1;1;0;1;1;true;NONE;false;false;0;12;0;false;false;false;false;false;0
+Les_Jardins_Suspendus;false;DECK;0;2;0;1;1;true;NONE;false;false;0;6;0;false;false;false;false;false;3
+Les_Pyramides;false;DECK;3;0;0;0;1;false;NONE;false;false;0;0;0;false;false;false;false;false;9
